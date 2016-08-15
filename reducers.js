@@ -1,17 +1,18 @@
-import {SHOW_ANSWER} from './actions.js';
+import {SHOW_ANSWER, LOAD_RIDDLES_SUCCESS} from './actions.js';
 
 const initialState = {
   showAnswer: false,
-  riddle: {
-    question: 'Forward I am heavy, but backward I am not. What am I?',
-    answer: 'A ton.' 
-  }
+  riddles: [{ question: '', answer: '' }]
 };
 
 export function reducer(state = initialState, action) {
+  let newState = {};
   switch(action.type) {
     case SHOW_ANSWER:
-      let newState = {showAnswer: true};
+      newState = {showAnswer: true};
+      return {...state, ...newState};
+    case LOAD_RIDDLES_SUCCESS:
+      newState = {riddles: action.riddles};
       return {...state, ...newState};
     default:
       return state;

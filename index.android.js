@@ -7,22 +7,22 @@ import {
 } from 'react-native';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 import { reducer } from './reducers.js';
+import { loadRiddles } from './actions.js';
 
 import RiddlePageContainer from './containers/riddle_page_container.js';
 
-let store = createStore(reducer);
+let store = createStore(reducer, applyMiddleware(thunk));
 
 class riddles extends Component {
-  render() {
-    let question = 'Forward I am heavy, but backward I am not. What am I?';
-    let answer = 'A ton.';
-    let riddle = { question, answer };
+  componentDidMount() {
+    store.dispatch(loadRiddles());
+  }
 
-    let showAnswer = false;
-    let onShowAnswer = () => {showAnswer = true};
+  render() {
     return (
       <Provider store={store}>
         <RiddlePageContainer />

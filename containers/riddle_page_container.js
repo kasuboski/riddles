@@ -6,7 +6,7 @@ import RiddlePage from '../components/riddle_page.js';
 const mapStateToProps = (state) => {
   return {
     showAnswer: state.showAnswer,
-    riddle: state.riddle
+    riddle: state.riddles[0]
   };
 };
 
