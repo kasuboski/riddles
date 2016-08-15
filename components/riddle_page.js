@@ -14,14 +14,14 @@ export default class RiddlePage extends Component {
   render() {
     let renderAnswer = () => {
       if(this.props.showAnswer) {
-        return (<Text style={[styles.baseText, styles.answerText]}>{this.props.answer}</Text>);
+        return (<Text style={[styles.baseText, styles.answerText]}>{this.props.riddle.answer}</Text>);
       }
     };
 
     return (
       <BackgroundView>
         <Text style={[styles.baseText, styles.riddleText]}>
-          {this.props.riddle}      
+          {this.props.riddle.question}      
         </Text>
         {renderAnswer()}
         <Button onPress={this.props.onShowAnswer}>Show Answer</Button>

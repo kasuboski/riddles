@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -12,16 +6,27 @@ import {
   View
 } from 'react-native';
 
-import RiddlePage from './components/riddle_page.js';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+import { reducer } from './reducers.js';
+
+import RiddlePageContainer from './containers/riddle_page_container.js';
+
+let store = createStore(reducer);
 
 class riddles extends Component {
   render() {
-    let riddle = 'Forward I am heavy, but backward I am not. What am I?';
+    let question = 'Forward I am heavy, but backward I am not. What am I?';
     let answer = 'A ton.';
+    let riddle = { question, answer };
+
     let showAnswer = false;
     let onShowAnswer = () => {showAnswer = true};
     return (
-      <RiddlePage showAnswer={showAnswer} riddle={riddle} answer={answer} onShowAnswer={onShowAnswer}/>
+      <Provider store={store}>
+        <RiddlePageContainer />
+      </Provider>
     );
   }
 }
