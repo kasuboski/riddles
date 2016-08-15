@@ -19,7 +19,7 @@ let store = createStore(reducer, applyMiddleware(thunk));
 
 class riddles extends Component {
   componentDidMount() {
-    store.dispatch(loadRiddles());
+    store.dispatch( loadRiddles() );
   }
 
   render() {

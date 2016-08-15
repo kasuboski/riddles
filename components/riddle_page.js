@@ -24,7 +24,8 @@ export default class RiddlePage extends Component {
           {this.props.riddle.question}      
         </Text>
         {renderAnswer()}
-        <Button onPress={this.props.onShowAnswer}>Show Answer</Button>
+        <Button style={styles.button} onPress={this.props.onShowAnswer}>Show Answer</Button>
+        <Button style={styles.button} onPress={this.props.onNextRiddle}>Next Riddle</Button>
       </BackgroundView>
     );
   }
@@ -35,12 +36,16 @@ const styles = StyleSheet.create({
     textAlign:'center',
     color: colors.seaSerpent,
     fontSize: 24,
+    margin: 10,
   },
   riddleText: {
     marginBottom: 10,
     
   },
   answerText: {
+    marginBottom: 10,
+  },
+  button: {
     marginBottom: 10,
   },
 });

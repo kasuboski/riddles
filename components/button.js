@@ -11,7 +11,7 @@ let colors = require('../colors.json');
 export default class Button extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, this.props.style]}>
         <TouchableHighlight style={styles.button} underlayColor={colors.blueSapphire} onPress={this.props.onPress}>
           <Text style={styles.buttonText}>{this.props.children}</Text>
         </TouchableHighlight>
