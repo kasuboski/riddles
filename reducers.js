@@ -17,7 +17,7 @@ export function reducer(state = initialState, action) {
       return {...state, ...newState};
     case OUT_OF_RIDDLES:
       //TODO: make show error or something
-      newState = {currentRiddle: 0};
+      newState = {showAnswer: false, currentRiddle: 0};
       return {...state, ...newState};
     case INCREMENT_CURRENT_RIDDLE:
       newState = {showAnswer: false, currentRiddle: state.currentRiddle + 1};
