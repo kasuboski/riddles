@@ -11,30 +11,20 @@ import Button from './button.js';
 let colors = require('../colors.json');
 
 export default class RiddlePage extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {showAnswer: false};
-  }
-
-  showAnswer() {
-    this.setState({showAnswer: true});
-  }
-
   render() {
     let renderAnswer = () => {
-      if(this.state.showAnswer) {
-        return (<Text style={[styles.baseText, styles.answerText]}> A ton.</Text>);
+      if(this.props.showAnswer) {
+        return (<Text style={[styles.baseText, styles.answerText]}>{this.props.answer}</Text>);
       }
     };
 
     return (
       <BackgroundView>
         <Text style={[styles.baseText, styles.riddleText]}>
-          Forward I am heavy, but backward I am not. What am I?       
+          {this.props.riddle}      
         </Text>
         {renderAnswer()}
-        <Button onPress={this.showAnswer.bind(this)}>Show Answer</Button>
+        <Button onPress={this.props.onShowAnswer}>Show Answer</Button>
       </BackgroundView>
     );
   }

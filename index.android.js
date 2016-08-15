@@ -16,8 +16,12 @@ import RiddlePage from './components/riddle_page.js';
 
 class riddles extends Component {
   render() {
+    let riddle = 'Forward I am heavy, but backward I am not. What am I?';
+    let answer = 'A ton.';
+    let showAnswer = false;
+    let onShowAnswer = () => {showAnswer = true};
     return (
-      <RiddlePage />
+      <RiddlePage showAnswer={showAnswer} riddle={riddle} answer={answer} onShowAnswer={onShowAnswer}/>
     );
   }
 }
