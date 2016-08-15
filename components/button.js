@@ -8,7 +8,7 @@ import {
 
 let colors = require('../colors.json');
 
-export default class button extends Component {
+export default class Button extends Component {
   render() {
     return (
       <View style={styles.container}>
