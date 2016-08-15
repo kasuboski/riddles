@@ -12,12 +12,12 @@ import {
   View
 } from 'react-native';
 
-import HomePage from './components/home_page.js';
+import RiddlePage from './components/riddle_page.js';
 
 class riddles extends Component {
   render() {
     return (
-      <HomePage />
+      <RiddlePage />
     );
   }
 }
