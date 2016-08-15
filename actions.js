@@ -21,6 +21,7 @@ function incrementCurrentRiddle() {
 
 export function loadRiddles() {
   return (dispatch) => {
+    //TODO: load more dynamically
     let riddles = require('./riddles.json');
     dispatch( loadRiddlesSuccess(riddles) );
   };
