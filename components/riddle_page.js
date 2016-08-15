@@ -14,8 +14,16 @@ export default class RiddlePage extends Component {
   render() {
     let renderAnswer = () => {
       if(this.props.showAnswer) {
-        return (<Text style={[styles.baseText, styles.answerText]}>{this.props.riddle.answer}</Text>);
+        return (
+            <Text style={[styles.baseText, styles.answerText]}>{this.props.riddle.answer}</Text>
+        );
       }
+    };
+
+    let renderButtons = () => {
+      return this.props.showAnswer ? 
+        <Button style={styles.button} onPress={this.props.onNextRiddle}>Next Riddle</Button>
+        :<Button style={styles.button} onPress={this.props.onShowAnswer}>Show Answer</Button>
     };
 
     return (
@@ -23,9 +31,8 @@ export default class RiddlePage extends Component {
         <Text style={[styles.baseText, styles.riddleText]}>
           {this.props.riddle.question}      
         </Text>
-        {renderAnswer()}
-        <Button style={styles.button} onPress={this.props.onShowAnswer}>Show Answer</Button>
-        <Button style={styles.button} onPress={this.props.onNextRiddle}>Next Riddle</Button>
+        { renderAnswer() }
+        { renderButtons() }
       </BackgroundView>
     );
   }
@@ -36,7 +43,8 @@ const styles = StyleSheet.create({
     textAlign:'center',
     color: colors.seaSerpent,
     fontSize: 24,
-    margin: 10,
+    marginLeft: 10,
+    marginRight: 10,
   },
   riddleText: {
     marginBottom: 10,
